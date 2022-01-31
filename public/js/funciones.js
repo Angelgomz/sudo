@@ -18,9 +18,11 @@ function enviarFormulario()
 {
     event.preventDefault();
     let nombre = document.getElementById('name').value;
-    let fecha =  document.getElementById('fecha').value;
-    let begin =  document.getElementById('begin').value;
-    let end =     document.getElementById('end').value;
+    let fecha = document.getElementById('fecha').value;
+    let begin = document.getElementById('begin').value;
+    let end = document.getElementById('end').value;
+    let description = document.getElementById('description').value;
+    console.log(name,description);
     async function sendForm() {
         const response = await fetch('/sudo/public/saveFecha',{
         method:"POST",
@@ -30,7 +32,7 @@ function enviarFormulario()
         "X-Requested-With": "XMLHttpRequest",
         "X-CSRF-Token": $('input[name="_token"]').val()
         },
-        body: JSON.stringify({'nombre':nombre,'fecha':fecha,'begin':begin,'end':end})
+        body: JSON.stringify({'nombre':nombre,'fecha':fecha,'begin':begin,'end':end,'description':description})
         });
          response = await response.json();
         return response;
@@ -48,7 +50,7 @@ $(document).ready(function() {
     $("#fecha").datepicker({
         dateFormat:'YYYY-MM-DD'
     });
-    $('input.timepicker').timepicker({timeFormat: 'h:mm:ss p',
+    $('input.timepicker').timepicker({timeFormat: 'h:mm:ss',
     interval: 60,
     defaultTime: '11',
     startTime: '10:00',

@@ -7,7 +7,6 @@ use Spatie\GoogleCalendar\Event;
 use App\Evento;
 use Carbon\Carbon;
 use DateTime;
-use Laravel\Socialite\Facades\Socialite;
 class HomeController extends Controller
 {
     /**
@@ -19,12 +18,6 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         //
-    }
-    public function index(){
-          $user = Socialite::driver('google')->user();
-          if(!empty($user)){
-              return view('home');
-          }
     }
     public function getEvents(){
         $events = Event::get();
@@ -63,4 +56,3 @@ class HomeController extends Controller
        $this->saveInGoogleCalendar($data['nombre'],$data['fecha'],$data['begin'],$data['end'],$data['description']);
     }
 }
-

@@ -8,6 +8,6 @@ class Evento extends Model
 {
     protected $table = 'events';
     protected $fillable = [
-        'id', 'name', 'created_by','fecha','begin','end','isActive'
+        'id', 'name', 'created_by','fecha','begin','end','description','isActive'
     ];
 }

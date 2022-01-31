@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->date('fecha');
             $table->time('begin');
             $table->time('end');
+            $table->string('description');
             $table->boolean('isActive');
             $table->timestamps();
         });

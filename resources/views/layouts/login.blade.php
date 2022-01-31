@@ -36,14 +36,25 @@
         </div>         
         @include ('layouts.navbar')
         <div class="container">
-             <div class="row">
-                 <div class="col-2 pt-2 pb-2">
-                        <button type="button" class="btn btn-light" id="createEvent">Crear nuevo evento</button>
+             <div class="row d-flex justify-content-center align-items-center">
+                            
+                            <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><h6><strong>Inicio de Sesión</strong></h6></h5>
+                                            <form>
+                                            <div class="form-group pt-2 pb-2">
+                                                <label for="exampleInputEmail1">Email:</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="angelgomz14@gmail.com">
+                                            </div>
+                                            <div class="form-group pt-2 pb-2">
+                                                <label for="exampleInputPassword1">Password:</label>
+                                                <input type="password" class="form-control" id="********" placeholder="Password">
+                                            </div>
+                                                    <button type="submit" class="btn btn-primary mt-1 mb-1">ENVIAR</button>
+                                                    <a href="/sudo/public/login-google" class="btn btn-success mt-1 mb-1" >INICIAR SESION CON GOOGLE <i class="fab fa-google"></i> </a>
+                                            </form>
+                                    </div>
+                            </div>
                 </div>
-            </div>
-            <div class="row">
-                    <iframe src="https://calendar.google.com/calendar/embed?src=64nul8cver2kr5av1o37n3gb98%40group.calendar.google.com&ctz=America%2FCaracas" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
-                  </iframe>
-            </div>
         </div>
 @include ('layouts.footer')

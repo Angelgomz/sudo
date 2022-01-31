@@ -4,33 +4,33 @@
                         <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Crear Evento:</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                        <form>
+                        <form class="formFecha">
                                     <div class="form-group pt-1 pb-1">
-                                        <label for="name">Nombre del evento: </label>
+                                          @csrf
+                                        <label for="name">Nombre del evento:</label>
                                         <input type="email" class="form-control" id="name"  placeholder="Meeting with sudo team">
                                     </div>
                                     <div class="form-group pt-1 pb-1">
-                                        <label for="date">Fecha del evento: </label>
-                                        <input class="form-control" id="fecha" name="fecha" placeholder="28/03/22 " type="text">                                                                    
+                                        <label for="date">Fecha del evento:</label>
+                                        <input class="form-control" id="fecha" name="fecha" placeholder="28/03/22"  type="text" autocomplete="off">                                                                    
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="date">Hora:</label>
                                     </div>
                                     <div class="form-group d-flex pt-1 pb-1">
-                                        <label for="date">Hora: </label>
-                                        <input class="form-control" id="begin" name="fecha" placeholder="11:30"     type="text">    
-                                        <input class="form-control" id="end" name="fecha" placeholder="12:30" type="text">   
+                                        <input class="form-control timepicker" id="begin" name="fecha" placeholder="11:30" type="text" autocomplete="off">    
+                                        <input class="form-control timepicker" id="end" name="fecha" placeholder="12:30" type="text" autocomplete="off">   
                                     </div>
-
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                            </form>
+                           </form>
+                                    <button type="submit" id="enviarForm" class="btn btn-primary pt-2 pb-2">Enviar</button>
+                         
                         </div>
-                        <div class="modal-footer">
-                     
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                      
                         </div>
                     </div>
         </div>         

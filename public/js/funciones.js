@@ -83,6 +83,25 @@ function enviarFormulario()
     let begin = document.getElementById('begin').value;
     let end = document.getElementById('end').value;
     let description = document.getElementById('description').value;
+    let errors = 0;
+    let text = "";
+    if(validateDate(fecha) != true){
+            errors++;
+            text = text + '<li>El formato de fecha no es valido</li>';
+    }
+    if(validateHours(begin) != true || validateHours(end) != true){
+        errors++;
+        text = text + '<li>Asegurate que el formato para las horas sea el correcto</li>';
+    }
+    if(validateDescripcion(description) != true){
+        errors++;
+        text = text + '<li>Las descripciones no admiten caracteres especiales.</li>';
+    }
+    if(errors > 0){
+        crearSwalFire('¡Upss!',text,'error');
+        return false;
+    }
+  
         axios.post('/sudo/public/api/saveEventInGoogleCalendar',{
         method:"POST",
          headers: {

@@ -11,5 +11,6 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src='../public/js/main.js'></script>
 <script src='../public/js/es.js'></script>
+<script src="../public/js/validaciones.js"></script>
 <script src="../public/js/funciones.js"></script>
 </html>

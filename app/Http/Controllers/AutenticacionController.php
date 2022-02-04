@@ -24,6 +24,8 @@ class AutenticacionController extends Controller
         return redirect('/');
     }
     public function crearUsuario($email,$token){
+        $ifExist = User::where('email','=',$email)->first();
+        if(!$ifExist){
         $user = new User();
         $user->name = 'Test';
         $user->email = $email;
@@ -39,6 +41,14 @@ class AutenticacionController extends Controller
         else{   
           $sucess = false;
         }
+        }
+        else{
+            Session::put('token',$token);
+            Session::put('email', $ifExist->email);
+            Session::put('id',$ifExist->id);
+            Auth::login($ifExist);
+        }
+    
     }
     public function index(){
         $client = new \Google_Client();

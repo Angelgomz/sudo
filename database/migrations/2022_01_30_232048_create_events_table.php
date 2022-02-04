@@ -13,15 +13,36 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
+      /*  'id', 
+        'nombre',
+        'tipo_evento',
+        'eTag',
+        'description',
+        'update_google',
+        'created_by',
+        'fecha',
+        'begin',
+        'end',
+        'created_at',
+        'status',
+        'isActive' */ 
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('created_by');
-            $table->date('fecha');
-            $table->time('begin');
-            $table->time('end');
-            $table->string('description');
+            $table->string('id_google');
+            $table->string('nombre')->nullable();
+            $table->string('tipo_evento')->nullable();
+            $table->string('eTag')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('update_google')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->string('email_creator')->nullable();
+            $table->dateTime('fecha')->nullable();
+            $table->dateTime('begin')->nullable();
+            $table->dateTime('end')->nullable();
+            $table->dateTime('created_por');
+            $table->string('status')->nullable();
             $table->boolean('isActive');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

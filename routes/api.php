@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Evento;
+use Spatie\GoogleCalendar\Event;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/saveEventInGoogleCalendar','EventController@saveEventInGoogleCalendar');
+Route::post('/editEventInGoogleCalendar ','EventController@editEventInGoogleCalendar');
+Route::post('/deleteEventInGoogleCalendar ','EventController@deleteEventInGoogleCalendar');
+Route::post('/geteventosCalendarPrimary','EventController@getEventsPrimary');

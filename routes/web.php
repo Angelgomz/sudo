@@ -11,18 +11,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// obtiene el listado de eventos.
-Route::get('/events','HomeController@getEvents');
+Route::get('/home','HomeController@getHome')->name('home');
 //crea y guarda un nuevo evento en la bdd.
-Route::post('/saveFecha','HomeController@saveFecha');
-Route::get('/', function () {
-    return view('layouts/login');
-});
-Route::get('/login-google', function () {
-    return Socialite::driver('google')->redirect();
-});
-Route::get('/google-callback','HomeController@index');
 
-Auth::routes();
+
+// Rutas de login 
+Route::get('/','AutenticacionController@index');
+Route::get('/google-callback','AutenticacionController@index');
+
+// Rutas especiales para el CRUD. 
+Route::get('/geteventosCalendarPrimary','EventController@getEventsPrimary');
+Route::post('/saveEventInGoogleCalendar','EventController@saveEventInGoogleCalendar');
+Route::post('/editEventInGoogleCalendar ','EventController@editEventInGoogleCalendar');
+Route::post('/deleteEventInGoogleCalendar ','EventController@deleteEventInGoogleCalendar');
+//Inicio vista.
+Route::get('/logout','AutenticacionController@logout');
 
 

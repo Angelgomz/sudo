@@ -8,6 +8,20 @@ class Evento extends Model
 {
     protected $table = 'events';
     protected $fillable = [
-        'id', 'name', 'created_by','fecha','begin','end','description','isActive'
+        'id', 
+        'id_google',
+        'nombre',
+        'tipo_evento',
+        'eTag',
+        'description',
+        'update_google',
+        'created_by',
+        'email_creator',
+        'fecha',
+        'begin',
+        'end',
+        'created_por',
+        'status',
+        'isActive'
     ];
 }

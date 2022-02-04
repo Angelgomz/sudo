@@ -51,7 +51,7 @@
                                                 <input type="password" class="form-control" id="********" placeholder="Password">
                                             </div>
                                                     <button type="submit" class="btn btn-primary mt-1 mb-1">ENVIAR</button>
-                                                    <a href="/sudo/public/login-google" class="btn btn-success mt-1 mb-1" >INICIAR SESION CON GOOGLE <i class="fab fa-google"></i> </a>
+                                                    <a href={{$urlauth}} class="btn btn-success mt-1 mb-1" >INICIAR SESION CON GOOGLE <i class="fab fa-google"></i> </a>
                                             </form>
                                     </div>
                             </div>

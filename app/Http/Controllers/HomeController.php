@@ -8,6 +8,8 @@ use App\Evento;
 use Carbon\Carbon;
 use DateTime;
 use Laravel\Socialite\Facades\Socialite;
+use Session;
+use App\Http\Controllers\HomeController;
 class HomeController extends Controller
 {
     /**
@@ -21,14 +23,17 @@ class HomeController extends Controller
         //
     }
     public function index(){
-          $user = Socialite::driver('google')->user();
-          if(!empty($user)){
-              return view('home');
-          }
+        //  $user = Socialite::driver('google')->user();
+         // if(!empty($user)){
+           // Session::put('user',$user);
+            return view('home');
+         // }  
+    }
+    public function getHome(){
+        return view('home');
     }
     public function getEvents(){
-        $events = Event::get();
-        return view('home');
+        dd($events);
     
     }
     public function saveInGoogleCalendar($nombre,$fecha,$begin,$end,$description){
@@ -41,26 +46,6 @@ class HomeController extends Controller
         $eventcalendar->startDateTime = $fechabegin;
         $eventcalendar->endDateTime = $fechaend;
         $eventcalendar->save();
-    }
-    public function saveFecha(Request $request){
-       $data = $request->all();
-       $event = new Evento();
-       $data['fecha'] = strtotime($data['fecha']);
-       $data['fecha']  = date('Y-m-d', $data['fecha']);
-       $data['begin'] = strtotime($data['begin']);
-       $data['begin'] = date('h:m:s', $data['begin']);
-       $data['end'] = strtotime($data['end']);
-       $data['end'] = date('h:m:s', $data['end']);
-       $data['description'] = $data['description'];
-       $event->name = $data['nombre'];
-       $event->fecha = $data['fecha'];
-       $event->begin = $data['begin'];
-       $event->end = $data['end'];
-       $event->description = $data['description'];
-       $event->created_by = 1;
-       $event->isActive = 1;
-       $event->save();
-       $this->saveInGoogleCalendar($data['nombre'],$data['fecha'],$data['begin'],$data['end'],$data['description']);
     }
 }
 

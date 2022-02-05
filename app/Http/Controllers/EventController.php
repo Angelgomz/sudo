@@ -205,7 +205,7 @@ class EventController extends Controller
     }
     public function editEventInGoogleCalendar(Request $request){
         try {
-            $data = $request->all();
+            $data = $request->all();  
             if(!empty($data['params'])){  
             $data = $data['params'];
             }
